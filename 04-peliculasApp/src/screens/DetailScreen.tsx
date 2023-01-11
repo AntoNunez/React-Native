@@ -2,7 +2,7 @@ import { StackScreenProps } from '@react-navigation/stack';
 import React from 'react'
 import { Image, Text, View, StyleSheet, Dimensions, ActivityIndicator, TouchableOpacity } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
-//import { Result } from '../interfaces/movieInterface';
+//import { Result, MovieFull } from '../interfaces/movieInterface';
 import { RootStackParams } from '../navigation/Navigation';
 //import Icon from 'react-native-vector-icons/Ionicons'
 import { useMovieDetails } from '../hooks/useMovieDetails';
@@ -34,7 +34,7 @@ export const DetailScreen = ({ route, navigation }: Props) => {
       </View>
       <View style={styles.marginContainer}>
 
-        <Text style={styles.subTitle}>{movie.original_title}</Text>
+        <Text style={styles.subTitle}>{movieFull?.runtime}</Text>
         <Text style={styles.title}>{movie.title}</Text>
 
       </View>
@@ -73,12 +73,14 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.24,
     shadowRadius: 7,
+  
 
     elevation: 10,
     borderBottomEndRadius: 25,
     borderBottomStartRadius: 25
 
   },
+ 
   imageBorder: {
     flex: 1,
     overflow: 'hidden',
